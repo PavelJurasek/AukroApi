@@ -52,7 +52,7 @@ class Client
 		return $this->sessionHandler->load() !== NULL;
 	}
 
-	public function login(): void
+	public function login()
 	{
 		if ($this->isLogged()) {
 			return;
@@ -73,7 +73,7 @@ class Client
 		}
 	}
 
-	public function logout(): void
+	public function logout()
 	{
 		$this->sessionHandler->clear();
 	}

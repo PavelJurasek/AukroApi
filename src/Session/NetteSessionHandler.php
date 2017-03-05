@@ -35,14 +35,14 @@ class NetteSessionHandler implements SessionHandler
 		return $loginData;
 	}
 
-	public function store(\stdClass $loginSession): void
+	public function store(\stdClass $loginSession)
 	{
 		$section = $this->getSection();
 
 		$section->offsetSet('loginSession', $loginSession);
 	}
 
-	public function clear(): void
+	public function clear()
 	{
 		$this->getSection()->remove();
 	}
