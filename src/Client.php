@@ -103,4 +103,9 @@ class Client
 		return $this->soapClient->$fname($request);
 	}
 
+	public function setSessionHandler(SessionHandler $sessionHandler)
+	{
+		$this->sessionHandler = $sessionHandler;
+	}
+
 }
