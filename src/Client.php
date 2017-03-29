@@ -7,7 +7,8 @@ use AukroApi\Session\SessionHandler;
 use Nette\Utils\Strings;
 
 /**
- * @method mixed getMyIncomingPayments()
+ * @method \stdClass getMyIncomingPayments(array $params = [])
+ * @method \stdClass getSellFormFieldsExt()
  *
  * @author Pavel Jurásek
  */
