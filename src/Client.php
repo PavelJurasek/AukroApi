@@ -4,6 +4,7 @@ namespace AukroApi;
 
 use AukroApi\Driver\DriverRequestFailedException;
 use AukroApi\Session\SessionHandler;
+use Nette\Utils\Strings;
 
 /**
  * @method mixed getMyIncomingPayments()
@@ -98,7 +99,7 @@ class Client
 
 		$request = $this->combineRequestData($params);
 
-		$fname = 'do' . ucfirst($name);
+		$fname = $this->formatMethodName($name);
 
 		return $this->soapClient->$fname($request);
 	}
@@ -106,6 +107,15 @@ class Client
 	public function setSessionHandler(SessionHandler $sessionHandler)
 	{
 		$this->sessionHandler = $sessionHandler;
+	}
+
+	private function formatMethodName(string $name): string
+	{
+		if (Strings::match($name, '~^do[A-Z]~')) {
+			return $name;
+		}
+
+		return 'do' . ucfirst($name);
 	}
 
 }
